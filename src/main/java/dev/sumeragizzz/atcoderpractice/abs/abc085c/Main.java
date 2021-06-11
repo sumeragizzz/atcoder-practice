@@ -1,4 +1,4 @@
-package dev.sumeragizzz.atcoderpractice.abs.abc85c;
+package dev.sumeragizzz.atcoderpractice.abs.abc085c;
 
 import java.util.Scanner;
 
