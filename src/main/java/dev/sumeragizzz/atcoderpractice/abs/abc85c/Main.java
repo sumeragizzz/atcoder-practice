@@ -7,22 +7,15 @@ public class Main {
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
+		int n = Integer.parseInt(scanner.next());
+		int y = Integer.parseInt(scanner.next());
 
-		String[] in = scanner.nextLine().split(" ");
-		int n = Integer.parseInt(in[0]);
-		int y = Integer.parseInt(in[1]);
-
-		for (int i = 0; i <= n; i++) {
-			for (int j = 0; j <= n; j++) {
-				for (int k = 0; k <= n; k++) {
-					if (i + j + k > n) {
-						break;
-					}
-					if (i + j + k == n &&
-							(i * 10_000 + j * 5_000 + k * 1_000 == y)) {
-						System.out.format("%d %d %d%n", i, j, k);
-						return;
-					}
+		for (int i = 0, imax = y / 10_000; i <= imax; i++) {
+			for (int j = 0, jmax = (y - 10_000 * i) / 5_000; j <= jmax; j++) {
+				int k = n - i - j;
+				if (10_000 * i + 5_000 * j + 1_000 * k == y) {
+					System.out.format("%d %d %d%n", i, j, k);
+					return;
 				}
 			}
 		}
